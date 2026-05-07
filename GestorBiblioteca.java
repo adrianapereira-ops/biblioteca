@@ -37,5 +37,39 @@ public class GestorBiblioteca {
         if (!tePrestecs) {
             System.out.println("Aquest usuari no té cap préstec registrat.");
         }
+
+        public void mostrarEstadistiques() {
+
+            System.out.println("--- ESTADÍSTIQUES DE LA BIBLIOTECA ---");
+            System.out.println("Total de préstecs realitzats: " + prestecs.size());
+
+            if (prestecs.isEmpty()) {
+                System.out.println("No hi ha dades suficients per generar informes.");
+                return;
+            }
+
+            mostrarLlibreMesPrestat();
+            mostrarUsuariMesActiu();
+        }
+
+        private void mostrarLlibreMesPrestat() {
+            String llibreMesPrestat = "";
+            int maxPrestecs = 0;
+
+            for (Prestec p1 : prestecs) {
+                int comptador = 0;
+                for (Prestec p2 : prestecs) {
+                    if (p1.getLlibre().getTitol().equals(p2.getLlibre().getTitol())) {
+                        comptador++;
+                    }
+                }
+                if (comptador > maxPrestecs) {
+                    maxPréstecs = comptador;
+                    llibreMesPrestat = p1.getLlibre().getTitol();
+                }
+            }
+            System.out.println("Llibre més prestat: " + llibreMesPrestat + " (" + maxPréstecs + " vegades)");
+        }
+     
+        }
     }
-}
