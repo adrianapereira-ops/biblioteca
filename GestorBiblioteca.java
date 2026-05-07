@@ -49,7 +49,7 @@ public class GestorBiblioteca {
             }
 
             mostrarLlibreMesPrestat();
-            mostrarUsuariMesActiu();
+            
         }
 
         private void mostrarLlibreMesPrestat() {
