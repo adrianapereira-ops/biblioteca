@@ -1,4 +1,4 @@
-public class Llibre {
+public class LlibreBiblioteca {
     private String titol;
     private String autor;
     private String categoria; 
