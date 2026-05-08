@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class MainBiblioteca{
+public class MainBiblioteca {
     public static void main(String[] args) {
         Scanner teclat = new Scanner(System.in);
         Biblioteca biblioteca = new Biblioteca();
         GestorBiblioteca gestor = new GestorBiblioteca();
 
-        biblioteca.afegirLlibre(new Llibre("1984", "George Orwell"));
-        biblioteca.afegirLlibre(new Llibre("El petit príncep", "Antoine de Saint-Exupéry"));
+        biblioteca.afegirLlibre(new LlibreBiblioteca("1984", "George Orwell"));
+        biblioteca.afegirLlibre(new LlibreBiblioteca("El petit príncep", "Antoine de Saint-Exupéry"));
 
         String opcio = "";
 
@@ -28,14 +28,14 @@ public class MainBiblioteca{
                 System.out.print("Autor del llibre: ");
                 String autor = teclat.nextLine();
                 
-                Llibre nouLlibre = new Llibre(titol, autor);
+                LlibreBiblioteca nouLlibre = new LlibreBiblioteca(titol, autor, null);
                 biblioteca.afegirLlibre(nouLlibre); 
                 System.out.println("Llibre afegit correctament.");
 
             } else if (opcio.equals("2")) {
                 // Recorrer llista de llibres i imprimir-ho un per un
                 System.out.println("Llibres a la biblioteca:");
-                for (Llibre l : biblioteca.getLlibres()) { 
+                for (LlibreBiblioteca l : biblioteca.getLlibres()) { 
                     System.out.println("- " + l.toString()); 
                 }
 

@@ -5,7 +5,7 @@ public class LlibreBiblioteca {
     private boolean prestat;
 
     // Constructor actualitzat amb categoria
-    public Llibre(String titol, String autor, String categoria) {
+    public LlibreBiblioteca(String titol, String autor, String categoria) {
         this.titol = titol;
         this.autor = autor;
         this.categoria = categoria;
@@ -51,3 +51,7 @@ public class LlibreBiblioteca {
         return titol + " de " + autor + 
                " [" + categoria + "]" +          
                (prestat ? " (En préstec)" : " (Disponible)");
+        
+    }
+    
+}

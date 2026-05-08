@@ -2,43 +2,53 @@ import java.time.LocalDate;
 
 public class PrestecBiblioteca {
     // Atributs
-    private Usuari usuari;
-    private Llibre llibre;
-    private LocalDate dataPrestec;
-    private LocalDate dataRetorn;
+   
+	private UsuariBiblioteca UsuariBiblioteca;
+	private LlibreBiblioteca LlibreBiblioteca;
+	private LocalDate LocalDate;
+	private java.time.LocalDate dataRetorn;
     
     // Constructor
 
-    public Prestec(Usuari usuari, Llibre llibre, LocalDate dataPrestec) {
-        this.usuari = usuari;
-        this.llibre = llibre;
-        this.dataPrestec = dataPrestec;
+    public PrestecBiblioteca(UsuariBiblioteca usuari, LlibreBiblioteca llibre, LocalDate dataPrestec) {
+        this.UsuariBiblioteca = usuari;
+        this.LlibreBiblioteca = llibre;
+        this.LocalDate = dataPrestec;
         // L'enunciat suggereix que el retorn és automàticament en 2 setmanes 
         this.dataRetorn = dataPrestec.plusWeeks(2);
     }
 
     //Mètodes
-    public Usuari getUsuari() { 
-        return usuari;
+    public UsuariBiblioteca getUsuari() { 
+        return getUsuari();
      }
-    public Llibre getLlibre() {
-         return llibre;
+    public LlibreBiblioteca getLlibre() {
+         return getLlibre();
          }
     public LocalDate getDataPrestec() {
-         return dataPrestec;
+         return getDataPrestec();
          }
     public LocalDate getDataRetorn() {
-         return dataRetorn;
+         return getDataRetorn();
          }
 
          
     public String getCategoriaPrestec() {
-        return llibre.getCategoria();
+        LlibreBiblioteca llibre = null;
+		return llibre.getCategoria();
     }
 
     @Override
     public String toString() {
-        return "Préstec: " + llibre.getTitol() + " , Usuari: " + usuari.getNom() + 
-               " , Inici: " + dataPrestec + " , Retorn: " + dataRetorn;
+        String dataPrestec = null;
+		LlibreBiblioteca llibre;
+		String dataRetorn = null;
+		return getNom() + " , Inici: " + dataPrestec + " , Retorn: " + dataRetorn + ("Préstec: " + llibre.getTitol() + " , Usuari: ");
     }
+
+	private String getNom() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
+
