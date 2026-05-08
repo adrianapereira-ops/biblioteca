@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuari {
+public class UsuariBiblioteca {
     //Propietats
     private String id;
     private String correu;
