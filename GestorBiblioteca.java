@@ -10,7 +10,6 @@ public class GestorBiblioteca {
     }
 
     public void prestarLlibre(Usuari usuari, Llibre llibre) {
-        
         if (!llibre.esPrestat()) {
             llibre.prestar();
             Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
@@ -22,7 +21,6 @@ public class GestorBiblioteca {
         }
     }
 
-    
     public void consultarHistorialUsuari(Usuari usuari) {
         System.out.println("Historial de " + usuari.getNom() + ":");
         boolean tePrestecs = false;
@@ -37,39 +35,36 @@ public class GestorBiblioteca {
         if (!tePrestecs) {
             System.out.println("Aquest usuari no té cap préstec registrat.");
         }
+    } // Clau de tancament del mètode corregida
 
-        public void mostrarEstadistiques() {
+    public void mostrarEstadistiques() {
+        System.out.println("--- ESTADÍSTIQUES DE LA BIBLIOTECA ---");
+        System.out.println("Total de préstecs realitzats: " + prestecs.size());
 
-            System.out.println("--- ESTADÍSTIQUES DE LA BIBLIOTECA ---");
-            System.out.println("Total de préstecs realitzats: " + prestecs.size());
-
-            if (prestecs.isEmpty()) {
-                System.out.println("No hi ha dades suficients per generar informes.");
-                return;
-            }
-
-            mostrarLlibreMesPrestat();
-            
+        if (prestecs.isEmpty()) {
+            System.out.println("No hi ha dades suficients per generar informes.");
+            return;
         }
 
-        private void mostrarLlibreMesPrestat() {
-            String llibreMesPrestat = "";
-            int maxPrestecs = 0;
-
-            for (Prestec p1 : prestecs) {
-                int comptador = 0;
-                for (Prestec p2 : prestecs) {
-                    if (p1.getLlibre().getTitol().equals(p2.getLlibre().getTitol())) {
-                        comptador++;
-                    }
-                }
-                if (comptador > maxPrestecs) {
-                    maxPréstecs = comptador;
-                    llibreMesPrestat = p1.getLlibre().getTitol();
-                }
-            }
-            System.out.println("Llibre més prestat: " + llibreMesPrestat + " (" + maxPréstecs + " vegades)");
-        }
-     
-        }
+        mostrarLlibreMesPrestat();
     }
+
+    private void mostrarLlibreMesPrestat() {
+        String llibreMesPrestat = "";
+        int maxPrestecs = 0;
+
+        for (Prestec p1 : prestecs) {
+            int comptador = 0;
+            for (Prestec p2 : prestecs) {
+                if (p1.getLlibre().getTitol().equals(p2.getLlibre().getTitol())) {
+                    comptador++;
+                }
+            }
+            if (comptador > maxPrestecs) {
+                maxPrestecs = comptador; 
+                llibreMesPrestat = p1.getLlibre().getTitol();
+            }
+        }
+        System.out.println("Llibre més prestat: " + llibreMesPrestat + " (" + maxPrestecs + " vegades)");
+    }
+}
