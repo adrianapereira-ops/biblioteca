@@ -51,5 +51,3 @@ public class Llibre {
         return titol + " de " + autor + 
                " [" + categoria + "]" +          
                (prestat ? " (En préstec)" : " (Disponible)");
-
-    }
