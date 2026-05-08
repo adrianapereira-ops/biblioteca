@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Prestec {
+public class PrestecBiblioteca {
     // Atributs
     private Usuari usuari;
     private Llibre llibre;

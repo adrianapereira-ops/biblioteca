@@ -3,16 +3,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorBiblioteca {
-    private List<Prestec> prestecs;
+    private List<PrestecBiblioteca> prestecs;
 
     public GestorBiblioteca() {
         this.prestecs = new ArrayList<>();
     }
 
-    public void prestarLlibre(Usuari usuari, Llibre llibre) {
+    public void prestarLlibre(UsuariBiblioteca usuari, LlibreBiblioteca llibre) {
+        
         if (!llibre.esPrestat()) {
             llibre.prestar();
-            Prestec prestec = new Prestec(usuari, llibre, LocalDate.now());
+            PrestecBiblioteca prestec = new PrestecBiblioteca();
             prestecs.add(prestec);
             usuari.afegirLlibre(llibre);
             System.out.println(usuari.getNom() + " ha agafat el llibre: " + llibre.getTitol());
@@ -21,11 +22,12 @@ public class GestorBiblioteca {
         }
     }
 
-    public void consultarHistorialUsuari(Usuari usuari) {
+    
+    public void consultarHistorialUsuari(UsuariBiblioteca usuari) {
         System.out.println("Historial de " + usuari.getNom() + ":");
         boolean tePrestecs = false;
         
-        for (Prestec p : prestecs) {
+        for (PrestecBiblioteca p : prestecs) {
             if (p.getUsuari().getNom().equals(usuari.getNom())) {
                 System.out.println("- " + p.getLlibre().getTitol() + " (Retornar el: " + p.getDataRetorn() + ")");
                 tePrestecs = true;
