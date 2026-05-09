@@ -6,9 +6,8 @@ public class MainBiblioteca {
         biblioteca biblioteca = new biblioteca();
         GestorBiblioteca gestor = new GestorBiblioteca();
 
-        
-        biblioteca.afegirLlibre(new LlibreBiblioteca("1984", "George Orwell", "Ficció"));
-        biblioteca.afegirLlibre(new LlibreBiblioteca("El petit príncep", "Antoine de Saint-Exupéry", "Infantil"));
+        biblioteca.afegirLlibre(new LlibreBiblioteca("1984", "George Orwell"));
+        biblioteca.afegirLlibre(new LlibreBiblioteca("El petit príncep", "Antoine de Saint-Exupéry"));
 
         String opcio = "";
 
@@ -27,17 +26,15 @@ public class MainBiblioteca {
                 String titol = teclat.nextLine();
                 System.out.print("Autor del llibre: ");
                 String autor = teclat.nextLine();
-                System.out.print("Categoria del llibre: ");
-                String categoria = teclat.nextLine();
-
-                LlibreBiblioteca nouLlibre = new LlibreBiblioteca(titol, autor, categoria);
-                biblioteca.afegirLlibre(nouLlibre);
+                
+                LlibreBiblioteca nouLlibre = new LlibreBiblioteca(titol, autor, null);
+                biblioteca.afegirLlibre(nouLlibre); 
                 System.out.println("Llibre afegit correctament.");
 
             } else if (opcio.equals("2")) {
                 System.out.println("Llibres a la biblioteca:");
-                for (LlibreBiblioteca l : biblioteca.getLlibres()) {
-                    System.out.println("- " + l.toString());
+                for (LlibreBiblioteca l : biblioteca.getLlibres()) { 
+                    System.out.println("- " + l.toString()); 
                 }
 
             } else if (opcio.equals("3")) {

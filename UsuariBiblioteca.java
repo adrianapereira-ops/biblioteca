@@ -6,10 +6,10 @@ public class UsuariBiblioteca {
     private String id;
     private String correu;
     private String nom;
-    private List<Llibre> llibresPrestats;
+    private List<LlibreBiblioteca> llibresPrestats;
 
     //Constructors
-    public Usuari(String id, String correu, String nom) {
+    public UsuariBiblioteca(String id, String correu, String nom) {
     this.id = id;
     this.correu = correu;
     this.nom = nom;
@@ -20,15 +20,15 @@ public class UsuariBiblioteca {
 public String getId() { return id; }
 public String getCorreu() { return correu; }
 public String getNom() { return nom; }
-public List<Llibre> LlibresPrestats() { return llibresPrestats; }
+public List<LlibreBiblioteca> LlibresPrestats() { return llibresPrestats; }
 
 public void setCorreu(String correu) { this.correu = correu; }
 public void setNom(String nom) { this.nom = nom; }
 
-public void afegirLlibre(Llibre llibre) { 
+public void afegirLlibre(LlibreBiblioteca llibre) { 
     llibresPrestats.add(llibre); 
 }
-public void retornarLlibre(Llibre llibre) { 
+public void retornarLlibre(LlibreBiblioteca llibre) { 
     llibresPrestats.remove(llibre); 
 }
 }
