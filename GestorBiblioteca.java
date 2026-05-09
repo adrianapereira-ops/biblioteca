@@ -13,7 +13,7 @@ public class GestorBiblioteca {
         
         if (!llibre.esPrestat()) {
             llibre.prestar();
-            PrestecBiblioteca prestec = new PrestecBiblioteca();
+            PrestecBiblioteca prestec = new PrestecBiblioteca(usuari, llibre, LocalDate.now());
             prestecs.add(prestec);
             usuari.afegirLlibre(llibre);
             System.out.println(usuari.getNom() + " ha agafat el llibre: " + llibre.getTitol());
@@ -55,15 +55,15 @@ public class GestorBiblioteca {
         String llibreMesPrestat = "";
         int maxPrestecs = 0;
 
-        for (Prestec p1 : prestecs) {
+        for (PrestecBiblioteca p1 : prestecs) {
             int comptador = 0;
-            for (Prestec p2 : prestecs) {
+            for (PrestecBiblioteca p2 : prestecs) {
                 if (p1.getLlibre().getTitol().equals(p2.getLlibre().getTitol())) {
                     comptador++;
                 }
             }
             if (comptador > maxPrestecs) {
-                maxPrestecs = comptador; 
+                maxPrestecs = comptador;
                 llibreMesPrestat = p1.getLlibre().getTitol();
             }
         }

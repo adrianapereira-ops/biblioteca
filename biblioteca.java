@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Biblioteca {
-    private List<Llibre> llibres;
+public class biblioteca {
+    private List<LlibreBiblioteca> llibres;
 
-    public Biblioteca() {
+    public biblioteca() {
         this.llibres = new ArrayList<>();
     }
 
-    public void afegirLlibre(Llibre llibre) { 
+    public void afegirLlibre(LlibreBiblioteca llibre) { 
         llibres.add(llibre); 
     }
 
-    public Llibre buscarLlibre(String titol) {
-        for (Llibre llibre : llibres) {
+    public LlibreBiblioteca buscarLlibre(String titol) {
+        for (LlibreBiblioteca llibre : llibres) {
             if (llibre.getTitol().equalsIgnoreCase(titol)) {
                 return llibre;
             }
@@ -22,7 +22,7 @@ public class Biblioteca {
     }
 
     public void comprovarDisponibilitat(String titol) {
-        Llibre llibre = buscarLlibre(titol);
+        LlibreBiblioteca llibre = buscarLlibre(titol);
         if (llibre != null) {
             if (llibre.esPrestat()) {
                 System.out.println("El llibre '" + titol + "' no està disponible.");
@@ -34,7 +34,8 @@ public class Biblioteca {
         }
     }
 
-    public List<Llibre> getLlibres() { 
+    public List<LlibreBiblioteca> getLlibres() { 
         return llibres; 
     }
+    
 }
